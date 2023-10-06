@@ -3,11 +3,15 @@ package com.spring.basic.score.service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.spring.basic.score.dto.ScoreListResponseDTO;
 import com.spring.basic.score.dto.ScoreRequestDTO;
 import com.spring.basic.score.entity.Score;
+import com.spring.basic.score.repository.IScoreMapper;
 import com.spring.basic.score.repository.IScoreRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -18,8 +22,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ScoreService {
 	
-	private final IScoreRepository scoreRepository;
-
+	private final IScoreMapper scoreRepository;
+	
+//	@Autowired
+//	public ScoreService(@Qualifier("spring")IScoreRepository scoreRepository) {
+//		this.scoreRepository = scoreRepository;
+//	}
 	// 등록 중간처리
 	// 컨트롤러는 나에게 DTO를 줬어.
 	// 하지만, 온전한 학생의 정보를 가지는 객체는 -> Score (Entity)
@@ -43,7 +51,7 @@ public class ScoreService {
 			ScoreListResponseDTO dto = new ScoreListResponseDTO(s); // Entity를 DTO로 변환
 			dtoList.add(dto); // 변환한 DTO를 DTO List에 추가
 		}
-			
+		
 		return dtoList;
 	}
 
