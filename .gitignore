@@ -3,6 +3,8 @@
 
 .DS_Store
 
+properties/
+
 ### Eclipse ###
 .metadata
 bin/
