@@ -106,4 +106,8 @@ public class SnsBoardService {
 			return "delete";
 		}
 	}
+
+	public List<Integer> likeList(String userId) {
+		return mapper.likeList(userId);
+	}
 }
